@@ -6,7 +6,12 @@ public class GravityChanger : MonoBehaviour
 {
     public Rigidbody2D player1Rb;
     public Rigidbody2D player2Rb;
+    public SpriteRenderer player1Sprite;
+    public SpriteRenderer player2Sprite;
     public float floatingForce = 0.1f;
+    public Color lowMassColor=new Color(1f,0.6f,0.6f);
+    public Color mediumMassColor=new Color(1f,0.3f,0.3f);
+    public Color highMassColor=new Color(1f,0f,0f);
     private int floatingState=1;
     // Start is called before the first frame update
     void Start(){
@@ -24,28 +29,35 @@ public class GravityChanger : MonoBehaviour
             floatingState--;
             if(floatingState<0) floatingState=0;
         }
+        changeFloatingState();
     }
 
     void FixedUpdate(){
-        if(player1Rb.gravityScale==0f){
+        if(player1Rb.mass==0.01f){
             player1Rb.AddForce(Vector2.up*floatingForce);
         }
-        else if(player2Rb.gravityScale==0f){
+        else if(player2Rb.mass==0.01f){
             player2Rb.AddForce(Vector2.up*floatingForce);
         }
     }
     void changeFloatingState(){
         if(floatingState==0){
-            player1Rb.gravityScale=0f;
-            player2Rb.gravityScale=1f;
+            player1Rb.mass=0.01f;
+            player2Rb.mass=1f;
+            player1Sprite.color=lowMassColor;
+            player2Sprite.color=highMassColor;
         }
         else if(floatingState==1){
-            player1Rb.gravityScale=0.5f;
-            player2Rb.gravityScale=0.5f;
+            player1Rb.mass=0.5f;
+            player2Rb.mass=0.5f;
+            player1Sprite.color=mediumMassColor;
+            player2Sprite.color=mediumMassColor;
         }
         else if(floatingState==2){
-            player1Rb.gravityScale=1f;
-            player2Rb.gravityScale=0f;
+            player1Rb.mass=1f;
+            player2Rb.mass=0.01f;
+            player1Sprite.color=highMassColor;
+            player2Sprite.color=lowMassColor;
         }
     }
 }
