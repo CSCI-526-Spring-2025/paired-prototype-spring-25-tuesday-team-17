@@ -8,7 +8,8 @@ public class GravityChanger : MonoBehaviour
     public Rigidbody2D player2Rb;
     public SpriteRenderer player1Sprite;
     public SpriteRenderer player2Sprite;
-    public float floatingForce = 0.15f;
+    public Transform rope;
+    public float floatingForce = 10f;
     public Color lowMassColor=new Color(1f,0.6f,0.6f);
     public Color mediumMassColor=new Color(1f,0.3f,0.3f);
     public Color highMassColor=new Color(1f,0f,0f);
@@ -50,18 +51,34 @@ public class GravityChanger : MonoBehaviour
             player2Rb.mass=1f;
             player1Sprite.color=lowMassColor;
             player2Sprite.color=highMassColor2;
+            Rope(false);
         }
         else if(floatingState==1){
             player1Rb.mass=0.5f;
             player2Rb.mass=0.5f;
             player1Sprite.color=mediumMassColor;
             player2Sprite.color=mediumMassColor2;
+            Rope(true);
         }
         else if(floatingState==2){
             player1Rb.mass=1f;
             player2Rb.mass=0.01f;
             player1Sprite.color=highMassColor;
             player2Sprite.color=lowMassColor2;
+            Rope(false);
+        }
+    }
+
+    void Rope(bool f)
+    {
+        int i = 0;
+        foreach (Transform child in rope)
+        {
+            Rigidbody2D rb = child.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.gravityScale = f ? 0.5f : 0.2f;
+            }
         }
     }
 }
