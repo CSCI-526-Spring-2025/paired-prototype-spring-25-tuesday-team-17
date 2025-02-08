@@ -5,7 +5,7 @@ using UnityEngine;
 public class SeesawController : MonoBehaviour
 {
     [Header("Physics Settings")]
-    public float maxAngle = 45f;     // maximum rotation angle
+    public float maxAngle = 85f;     // maximum rotation angle
     public float balanceDamping = 2f; // rotation damping
 
     private Rigidbody2D beamRb;

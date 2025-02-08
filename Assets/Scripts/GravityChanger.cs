@@ -8,7 +8,7 @@ public class GravityChanger : MonoBehaviour
     public Rigidbody2D player2Rb;
     public SpriteRenderer player1Sprite;
     public SpriteRenderer player2Sprite;
-    public float floatingForce = 0.1f;
+    public float floatingForce = 0.15f;
     public Color lowMassColor=new Color(1f,0.6f,0.6f);
     public Color mediumMassColor=new Color(1f,0.3f,0.3f);
     public Color highMassColor=new Color(1f,0f,0f);
