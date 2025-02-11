@@ -82,7 +82,7 @@ public class GravityChanger : MonoBehaviour
             Rigidbody2D rb = child.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
-                rb.gravityScale = f ? 0.5f : 0.2f;
+                rb.gravityScale = f ? 0.5f : 0.01f;
             }
         }
     }

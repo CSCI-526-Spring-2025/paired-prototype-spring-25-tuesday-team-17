@@ -7,6 +7,7 @@ public class SeesawController : MonoBehaviour
     [Header("Physics Settings")]
     public float maxAngle = 85f;     // maximum rotation angle
     public float balanceDamping = 2f; // rotation damping
+    public float balanceForce = 10f; // force to reset the seesaq
 
     private Rigidbody2D beamRb;
     private HingeJoint2D hinge;
@@ -26,6 +27,12 @@ public class SeesawController : MonoBehaviour
             // Stop the beam from rotating further
             beamRb.angularVelocity = 0f;
             // beamRb.rotation = Mathf.Sign(currentAngle) * maxAngle;
+        }
+        if(currentAngle>0){
+            beamRb.AddTorque(balanceForce);
+        }
+        else{
+            beamRb.AddTorque(-balanceForce);
         }
     }
 }
