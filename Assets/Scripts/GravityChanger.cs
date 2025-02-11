@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GravityChanger : MonoBehaviour
 {
+    public int ticks=10000;
     public Rigidbody2D player1Rb;
     public Rigidbody2D player2Rb;
     public SpriteRenderer player1Sprite;
@@ -18,6 +19,7 @@ public class GravityChanger : MonoBehaviour
     public Color mediumMassColor2=new Color(0.5f, 1f, 1f);
     public Color highMassColor2=new Color(0f, 1f, 1f);
     private int floatingState=1;
+    private long lastTime=0;
     // Start is called before the first frame update
     void Start(){
         changeFloatingState();
@@ -26,11 +28,13 @@ public class GravityChanger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.K)){
+        //ensure 0.1s delay between changes
+        if(System.DateTime.Now.Ticks-lastTime<ticks) return;
+        if(Input.GetKeyDown(KeyCode.UpArrow)){
             floatingState++;
             if(floatingState>2) floatingState=2;
         }
-        else if(Input.GetKeyDown(KeyCode.J)){
+        else if(Input.GetKeyDown(KeyCode.W)){
             floatingState--;
             if(floatingState<0) floatingState=0;
         }
@@ -67,6 +71,7 @@ public class GravityChanger : MonoBehaviour
             player2Sprite.color=lowMassColor2;
             Rope(false);
         }
+        lastTime=System.DateTime.Now.Ticks;
     }
 
     void Rope(bool f)
