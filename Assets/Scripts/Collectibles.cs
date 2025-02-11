@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Collectibles : MonoBehaviour
 {
-    public GameObject  collectiblePrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +17,8 @@ public class Collectibles : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        Debug.Log("11111");
+        if (other.GetComponent<Player1Movements>() != null || other.GetComponent<Player2Movements>() != null) {
+            Destroy(gameObject);
+        }
     }
 }
