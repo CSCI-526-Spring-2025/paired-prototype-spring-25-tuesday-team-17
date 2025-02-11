@@ -17,7 +17,7 @@ public class Collectibles : MonoBehaviour
         transform.Rotate(0, 0.1f, 0);
     }
 
-    private void OnTriggerEnter(Collider other) {
+    private void OnTriggerEnter2D(Collider2D other) {
         Debug.Log("11111");
     }
 }

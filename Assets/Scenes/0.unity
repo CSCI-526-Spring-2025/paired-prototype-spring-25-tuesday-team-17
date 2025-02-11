@@ -744,7 +744,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAngle: 90
   balanceDamping: 2
-  balanceForce: 15
 --- !u!233 &189085007
 HingeJoint2D:
   m_ObjectHideFlags: 0
@@ -761,16 +760,11 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-<<<<<<< HEAD
-  m_ConnectedAnchor: {x: 0, y: 0}
-  m_UseMotor: 1
-=======
   m_ConnectedAnchor: {x: 18.71, y: 7.91}
   m_UseMotor: 0
->>>>>>> 67bc6cc05109d6184f46ec724c8cada1fc717ffa
   m_Motor:
     m_MotorSpeed: 0
-    m_MaximumMotorForce: 10
+    m_MaximumMotorForce: 10000
   m_UseLimits: 0
   m_AngleLimits:
     m_LowerAngle: -30
@@ -2128,7 +2122,7 @@ MonoBehaviour:
   player1Sprite: {fileID: 124611323}
   player2Sprite: {fileID: 1217832016}
   rope: {fileID: 21460228}
-  floatingForce: 2
+  floatingForce: 7
   lowMassColor: {r: 1, g: 0.6, b: 0.6, a: 1}
   mediumMassColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   highMassColor: {r: 1, g: 0, b: 0, a: 1}
