@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class OpenTheDoor : MonoBehaviour
 {
+    public int totalCollectibles = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +14,7 @@ public class OpenTheDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GetCollectibleCount() == 1)
+        if (GetCollectibleCount() == totalCollectibles)
         {
             Destroy(gameObject);
         }
