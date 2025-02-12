@@ -744,6 +744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAngle: 90
   balanceDamping: 2
+  balanceForce: 10
 --- !u!233 &189085007
 HingeJoint2D:
   m_ObjectHideFlags: 0
@@ -2961,6 +2962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4219353b9ef864e8e95bb691a673db76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalCollectibles: 1
 --- !u!1 &1371380536
 GameObject:
   m_ObjectHideFlags: 0
