@@ -30,11 +30,11 @@ public class GravityChanger : MonoBehaviour
     {
         //ensure 0.1s delay between changes
         if(System.DateTime.Now.Ticks-lastTime<ticks) return;
-        if(Input.GetKeyDown(KeyCode.UpArrow)){
+        if(Input.GetKeyDown(KeyCode.UpArrow)||Input.GetKeyDown(KeyCode.S)){
             floatingState++;
             if(floatingState>2) floatingState=2;
         }
-        else if(Input.GetKeyDown(KeyCode.W)){
+        else if(Input.GetKeyDown(KeyCode.W)||Input.GetKeyDown(KeyCode.DownArrow)){
             floatingState--;
             if(floatingState<0) floatingState=0;
         }
