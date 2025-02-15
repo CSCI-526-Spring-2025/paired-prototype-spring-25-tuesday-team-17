@@ -21,13 +21,14 @@ public class ExitController : MonoBehaviour
         GameObject collectiblePrefab = GameObject.Find("collectibles");
         int totalCollectibles = 0;
         totalCollectibles += collectiblePrefab.transform.childCount;
+        Debug.Log("All collectibles collected!");
         if (totalCollectibles == 0)
         {
             Debug.Log("All collectibles collected!");
             if(other.CompareTag("Player"))
             {
                 Debug.Log("Player has reached the exit!");
-                SceneManagement.LoadScene("WinScene");
+                SceneManager.LoadScene("WinScene");
             }
         }
     }
